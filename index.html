@@ -68,21 +68,21 @@
             <li class="mr-3">
               <a
                 class="toggleColour font-bold inline-block py-2 px-4 text-white/90 no-underline"
-                href="#"
+                href="#about"
                 >A propos de nous</a
               >
             </li>
             <li class="mr-3">
               <a
                 class="toggleColour inline-block text-white/90 font-bold no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
+                href="#atouts"
                 >Nos Atouts</a
               >
             </li>
             <li class="mr-3">
               <a
                 class="toggleColour inline-block text-white/90 font-bold no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
+                href="#domaines"
                 >Domaines d'expertise</a
               >
             </li>
@@ -90,9 +90,11 @@
           <button
             type="button"
             id="navAction"
-            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-2 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-2 px-8 shadow opacity-90 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
           >
+          <a href="mailto:contact@allcompentences.com">
             Contact
+          </a>
           </button>
         </div>
       </div>
@@ -101,11 +103,11 @@
     <!--Hero-->
     <div class="pt-24">
       <div
-        class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center"
+      id="about" class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center"
       >
         <!--Left Col-->
         <div
-          class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left"
+           class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left"
         >
           <p class="uppercase tracking-loose w-full">Pour votre emergence</p>
           <h1 class="my-4 text-5xl font-bold leading-tight">
@@ -119,12 +121,16 @@
             <button
               class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
             >
+            <a href="#domaines">  
               Découvrez nos services
+            </a>
             </button>
             <button
               class="ml-3 lg:mx-0 hover:underline text-white font-bold rounded-full my-6 py-4 px-12 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
             >
+            <a href="#atouts">    
               En savoir plus
+            </a>
             </button>
           </div>
         </div>
@@ -181,7 +187,7 @@
           Explorez nos atouts
         </h1>
 
-        <div class="w-full mb-4">
+        <div id="atouts" class="w-full mb-4">
           <div
             class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
           ></div>
@@ -258,7 +264,7 @@
       </div>
     </section>
     <section class="bg-white border-b py-8">
-      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+      <div id="domaines" class="container mx-auto flex flex-wrap pt-4 pb-12">
         <h1
           class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
         >
@@ -425,18 +431,22 @@
         Commençons par receuillir vos besoins!
       </h3>
       <button
+      
+       
         class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
       >
+      <a href="mailto:contact@allcompentences.com">
         Contact
+      </a>
       </button>
     </section>
     <!--Footer-->
     <footer class="bg-white">
       <div class="container mx-auto px-8">
         <div class="w-full flex flex-col md:flex-row py-6">
-          <div class="flex-1 mb-6 text-black">
+          <div class="flex-1 mb-6 text-black mr-12">
             <a
-              class="text-pink-600 no-underline hover:no-underline font-bold text-xl lg:text-2xl"
+              class="text-blue-800 no-underline hover:no-underline font-bold text-lg lg:text-xl"
               href="#"
             >
               <!--Icon from: http://www.potlabicons.com/ -->
@@ -584,7 +594,7 @@
           }
           //Use to switch toggleColour colours
           for (var i = 0; i < toToggle.length; i++) {
-            toToggle[i].classList.add("text-blue-900")
+            toToggle[i].classList.add("text-blue-800")
             toToggle[i].classList.remove("text-white")
             toToggle[i].classList.remove("text-white/90")
           }
