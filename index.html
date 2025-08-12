@@ -1,669 +1,521 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>All Compentences - Vos besoins sont nos compentences!</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>
+      ALL COMPETENCES — Experts à la demande pour PME & Grandes entreprises
+    </title>
+    <meta
+      name="description"
+      content="ALL COMPETENCES met en relation les entreprises avec des experts indépendants et des talents internes pour accélérer la croissance — IT, Marketing, Finance, RH, Design, Data..."
+    />
+    <link rel="icon" href="/images/logo.png" />
+
+    <!-- Tailwind Browser (lightweight dev CDN) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+      defer
+    ></script>
     <link
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+
     <style>
-      .gradient {
-        background: linear-gradient(90deg, #15307a 0%, #3e5db2 100%);
+      :root {
+        --blue-900: #0f2a66;
+        --blue-600: #2b59b0;
+        --accent: #ff7a59;
+        --muted: #6b7280;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      .hero-gradient {
+        background: linear-gradient(
+          90deg,
+          var(--blue-900) 0%,
+          var(--blue-600) 100%
+        );
+      }
+      .glass {
+        backdrop-filter: blur(6px) saturate(120%);
+      }
+      /* Micro animation for cards */
+      .card-anim {
+        transition: transform 0.36s ease, box-shadow 0.36s ease;
+      }
+      .card-anim:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(11, 23, 55, 0.12);
       }
     </style>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ALL COMPETENCES",
+        "url": "https://allcompetences.com",
+        "logo": "https://allcompetences.com/images/logo.png",
+        "description": "Cabinet de conseil et mise en relation d'experts indépendants pour PME et grandes entreprises."
+      }
+    </script>
   </head>
-  <body
-    class="leading-normal tracking-normal text-white gradient"
-    style="font-family: 'Source Sans Pro', sans-serif"
-  >
-    <!--Nav-->
-    <nav id="header" class="fixed w-full z-30 top-0 text-white">
-      <div
-        class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-4"
+  <body class="min-h-screen font-sans text-gray-900 bg-white">
+    <!-- NAV -->
+    <header class="fixed w-full z-40">
+      <nav
+        id="siteNav"
+        class="glass hero-gradient/60 text-white px-6 py-4 md:px-12 transition-all duration-300"
       >
-        <div class="pl-4 flex items-center">
-          <a
-            class="toggleColour text-white no-underline hover:no-underline font-bold text-xl lg:text-2xl"
-            href="#"
-          >
-            <!--Icon from: http://www.potlabicons.com/ -->
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+          <a href="/" class="flex items-center gap-3 no-underline">
             <img
-              id="main-logo"
-              class="w-13 h-6 fill-current inline mr-2"
-              src="images/logo.png"
-              alt="All Compentences logo"
+              src="/images/logo.png"
+              alt="All Competences"
+              class="h-9 w-auto"
             />
-            ALL COMPETENCES
+            <span class="font-semibold text-lg">ALL COMPETENCES</span>
           </a>
-        </div>
-        <div class="block lg:hidden pr-4">
-          <button
-            id="nav-toggle"
-            class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-          >
+
+          <div class="hidden md:flex items-center gap-6">
+            <a href="/about-us.html" class="hover:underline">À propos</a>
+            <a href="/nos-valeurs.html" class="hover:underline">Nos valeurs</a>
+            <a href="#domaines" class="hover:underline">Domaines</a>
+            <a href="#temoignages" class="hover:underline">Témoignages</a>
+            <a href="/blog" class="hover:underline">Blog</a>
+            <a
+              href="#contact"
+              class="ml-6 inline-flex items-center gap-2 rounded-full bg-white text-blue-800 px-4 py-2 shadow font-semibold"
+              >Contact</a
+            >
+          </div>
+
+          <button id="mobileOpen" class="md:hidden p-2 rounded bg-white/10">
             <svg
-            id="menu-svg"
-            class="fill-current h-6 w-6 text-white"
-              viewBox="0 0 20 20"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
             </svg>
           </button>
         </div>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden bg-white/95 text-blue-900 md:hidden">
+        <div class="max-w-3xl mx-auto px-6 py-6 flex flex-col gap-4">
+          <a href="/about-us.html" class="py-2">À propos</a>
+          <a href="/nos-valeurs.html" class="py-2">Nos valeurs</a>
+          <a href="#domaines" class="py-2">Domaines</a>
+          <a href="#temoignages" class="py-2">Témoignages</a>
+          <a href="#contact" class="py-2 font-semibold">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main class="pt-24">
+      <section class="hero-gradient text-white">
         <div
-          class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
-          id="nav-content"
-          >
-          <ul class="list-reset lg:flex justify-end flex-1 items-center">
-            <li class="mr-3">
+          class="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 flex flex-col md:flex-row items-center gap-12"
+        >
+          <div class="md:w-6/12">
+            <p class="uppercase text-sm tracking-wider text-white/80 mb-3">
+              Conseil & talents à la demande
+            </p>
+            <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
+              Accélérez votre croissance avec des experts prêts à intervenir —
+              dès 48 heures.
+            </h1>
+            <p class="mt-6 text-lg text-white/90 max-w-2xl">
+              ALL COMPETENCES connecte les PME et grands groupes à des
+              freelances et consultants seniors (IT, Data, Finance, RH, Design,
+              Marketing). Résultats mesurables, intégration facile, et
+              accompagnement engagé.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-4">
               <a
-                class="toggleColour font-bold inline-block py-2 px-4 text-white/90 max-md:text-blue-800 max-lg:text-blue-800 no-underline"
-                href="#about"
-                >A propos de nous</a
+                href="#contact"
+                class="inline-flex items-center gap-3 bg-white text-blue-800 font-semibold rounded-full px-6 py-3 shadow hover:scale-[1.02] transition"
+                >Demander un expert</a
               >
-            </li>
-            <li class="mr-3">
               <a
-                class="toggleColour inline-block text-white/90 max-md:text-blue-800 max-lg:text-blue-800 font-bold no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#atouts"
-                >Nos Atouts</a
-              >
-            </li>
-            <li class="mr-3">
-              <a
-                class="toggleColour inline-block text-white/90 max-md:text-blue-800 max-lg:text-blue-800 font-bold no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
                 href="#domaines"
-                >Domaines d'expertise</a
+                class="inline-flex items-center gap-2 border border-white/25 rounded-full px-5 py-3 hover:bg-white/10 transition"
+                >Découvrir nos domaines</a
               >
-            </li>
-          </ul>
-          <button
-            type="button"
-            id="navAction"
-            class="mx-auto lg:mx-0 hover:underline bg-white text-blue-800 max-md:bg-blue-800 max-lg:bg-blue-800  max-md:text-white max-lg:text-white font-bold rounded-full mt-4 lg:mt-0 py-2 px-8 shadow opacity-90 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-          >
-          <a href="mailto:infos@allcompetences.com">
-            Contact
-          </a>
-          </button>
-        </div>
-      </div>
-      <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
-    </nav>
-    <!--Hero-->
-    <div class="pt-24">
-      <div
-      id="about" class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center"
-      >
-        <!--Left Col-->
-        <div
-           class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left"
-        >
-          <p class="uppercase tracking-loose w-full">Pour votre emergence</p>
-          <h1 class="my-4 text-5xl font-bold leading-tight">
-            Vous souhaitez augmenter votre rentabilité?
-          </h1>
-          <p class="leading-normal text-2xl mb-8">
-            Libérez le potentiel de votre entreprise avec nos services et nos
-            freelances experts. Ensemble, créons un succès durable.
-          </p>
-          <div class="d-flex flex-row justify-normal">
-            <button
-              class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-            >
-            <a href="#domaines">  
-              Découvrez nos services
-            </a>
-            </button>
-            <button
-              class="ml-3 lg:mx-0 hover:underline text-white font-bold rounded-full my-6 py-4 px-12 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-            >
-            <a href="#atouts">    
-              En savoir plus
-            </a>
-            </button>
-          </div>
-        </div>
-        <!--Right Col-->
-        <div class="w-full md:w-3/5 py-6 text-center">
-          <img class="w-full md:w-5/5 z-50" src="images/landing_1.png" />
-        </div>
-      </div>
-    </div>
-    <div class="relative -mt-12 lg:-mt-24">
-      <svg
-        viewBox="0 0 1428 174"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-      >
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g
-            transform="translate(-2.000000, 44.000000)"
-            fill="#FFFFFF"
-            fill-rule="nonzero"
-          >
-            <path
-              d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
-              opacity="0.100000001"
-            ></path>
-            <path
-              d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
-              opacity="0.100000001"
-            ></path>
-            <path
-              d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
-              id="Path-4"
-              opacity="0.200000003"
-            ></path>
-          </g>
-          <g
-            transform="translate(-4.000000, 76.000000)"
-            fill="#FFFFFF"
-            fill-rule="nonzero"
-          >
-            <path
-              d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"
-            ></path>
-          </g>
-        </g>
-      </svg>
-    </div>
-    <section class="bg-white border-b py-8">
-      <div class="container max-w-5xl mx-auto m-8 max-md:p-4 max-lg:p-4">
-        <h1
-          class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
-        >
-          Explorez nos atouts
-        </h1>
-
-        <div id="atouts" class="w-full mb-4">
-          <div
-            class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
-          ></div>
-          <h3 class="text-gray-700 mt-6 font-bold text-center">
-            Boostez la croissance de votre entreprise grâce à notre réseau de
-            freelances qualifiés et nos services sur mesure.
-          </h3>
-        </div>
-        <div class="flex flex-wrap p-10 mt-12">
-          <div class="w-5/6 sm:w-1/2 max-md:mb-8 max-lg:mb-8 max-md:w-full max-lg:w-full">
-            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-8">
-              Flexibilité garantie
-            </h3>
-            <p class="text-gray-600 mr-4 max-md:mr-0 max-lg:mr-0">
-              Accédez à un large éventail de compétences pour répondre à tous
-              vos besoins, quelle que soit leur complexité. Grâce à notre réseau
-              d’experts triés sur le volet, nous intervenons dans tous les
-              domaines : tech, marketing, juridique, design, ou même niche
-              spécialisée. Pas de rigidité, pas de délais interminables : nous
-              nous adaptons à vos deadlines et vos urgences. Besoin d’un
-              développeur Full-Stack demain ? D’un consultant en stratégie
-              digitale la semaine prochaine ? Une seule interface, des solutions
-              sans limites. Libérez-vous des contraintes logistiques et
-              concentrez-vous sur l’essentiel : votre croissance.
-            </p>
-          </div>
-          <div class="w-full sm:w-1/2">
-            <img src="images/undraw_organizing-data_uns9.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex flex-wrap flex-col-reverse sm:flex-row">
-          <div class="w-full sm:w-1/2">
-            <img src="images/undraw_data-input_whqw.png" alt="" />
-          </div>
-          <div class="w-full sm:w-1/2">
-            <div class="align-middle max-md:p-8 max-lg:p-8">
-              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-8">
-                Expertise polyvalente
-              </h3>
-              <p class="text-gray-600">
-                Adaptez vos ressources en fonction de vos projets et de vos
-                priorités, sans sacrifier la qualité. Notre force ? Des profils
-                hybrides et ultra-spécialisés, capables de switcher d’un secteur
-                à l’autre sans temps d’adaptation. Un même expert peut optimiser
-                votre ERP aujourd’hui et piloter votre campagne SEO demain.
-                Agilité rime avec performance. Nous combinons réactivité et
-                profondeur d’analyse, que vous soyez une scale-up tech ou un
-                groupe traditionnel. Vos défis évoluent ? Notre expertise aussi.
-              </p>
+              <button
+                id="quickMatch"
+                class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-3"
+              >
+                Trouver en 3 clics
+              </button>
             </div>
-          </div>
-        </div>
-        <div class="flex flex-wrap mt-8">
-          <div class="w-5/6 sm:w-1/2 max-md:p-8 max-lg:p-8 max-md:w-full max-lg:w-full">
-            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-8">
-              Solutions économiques
-            </h3>
-            <p class="text-gray-600">
-              Optimisez vos coûts en faisant appel à des experts à la demande,
-              sans compromis sur la qualité. Finis les salaires fixes, les
-              charges inutiles ou les compétences sous-exploitées : payez
-              seulement l’expertise dont vous avez besoin, quand vous en avez
-              besoin. Nos forfaits transparents et nos engagements sans frais
-              cachés vous permettent de maîtriser votre budget. Externalisez
-              intelligemment, réduisez vos coûts de 30 à 50% par rapport à un
-              recrutement classique. Votre trésorerie respire, vos projets
-              avancent. 100% ROI, 0% gaspillage.
-            </p>
-          </div>
-          <div class="w-full sm:w-1/2">
-            <img src="images/undraw_credit-card-payments_y0vn.png" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="bg-white border-b py-8">
-      <div id="domaines" class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <h1
-          class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
-        >
-        Des compétences diversifiées
-        </h1>
-        <div class="w-full mb-12">
-          <div
-            class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
-          ></div>
-          <h3 class="text-gray-700 mt-6 font-bold text-center">
-            Découvrez notre réseau d'experts qualifiés couvrant un large éventail de domaines d'expertise.
-          </h3>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div
-            class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1"
-          >
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <img src="images/it.png" alt="">
 
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Développement & IT
+            <div class="mt-8 flex items-center gap-6">
+              <div class="flex items-center gap-3">
+                <strong class="text-2xl">48h</strong>
+                <span class="text-sm text-white/80"
+                  >délai moyen de mise en relation</span
+                >
               </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                Experts en développement web, mobile, DevOps, cybersécurité et architecture cloud.
-              </p>
-            </a>
-          </div>
-          
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div
-            class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1"
-          >
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <img src="images/marketing.png" alt="">
-
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Marketing Digital              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                Spécialistes SEO, social media, content marketing et stratégie digitale.
-              </p>
-            </a>
-          </div>
-          
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div
-            class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1"
-          >
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <img src="images/design.png" alt="">
-
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Design & Création              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                Designers UI/UX, graphistes, motion designers et directeurs artistiques.
-              </p>
-            </a>
-          </div>
-         
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div
-            class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1"
-          >
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <img src="images/gestion.png" alt="">
-  
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Gestion de Projet             </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                Chefs de projet agiles, product owners et consultants en transformation.
-              </p>
-            </a>
-          </div>
-        </div>
-          <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div
-              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1"
-            >
-              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                <img src="images/data.png" alt="">
-  
-                <div class="w-full font-bold text-xl text-gray-800 px-6">
-                  Data & Analytics
-                </div>
-                <p class="text-gray-800 text-base px-6 mb-5">
-                  Data scientists, analystes BI et experts en intelligence artificielle.
-                </p>
-              </a>
+              <div class="flex items-center gap-3">
+                <strong class="text-2xl">+250</strong>
+                <span class="text-sm text-white/80">experts qualifiés</span>
+              </div>
             </div>
-            
           </div>
-          <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div
-              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1"
-            >
-              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                <img src="images/finance.png" alt="">
-                <div class="w-full font-bold text-xl text-gray-800 px-6">
-                  Business & Finance              </div>
-                <p class="text-gray-800 text-base px-6 mb-5">
-                  Consultants stratégiques, analystes financiers et experts comptables.
-                </p>
-              </a>
-            </div>
-            
-          </div>
-      </div>
 
-        </div>
-      </div>
-    </section>
-    
-    <!-- Change the colour #f8fafc to match the previous section colour -->
-    <svg
-      class="wave-top"
-      viewBox="0 0 1439 147"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-    >
-      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
-          <g class="wave" fill="#f8fafc">
-            <path
-              d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z"
-            ></path>
-          </g>
-          <g transform="translate(1.000000, 15.000000)" fill="#FFFFFF">
-            <g
-              transform="translate(719.500000, 68.500000) rotate(-180.000000) translate(-719.500000, -68.500000) "
-            >
-              <path
-                d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
-                opacity="0.100000001"
-              ></path>
-              <path
-                d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
-                opacity="0.100000001"
-              ></path>
-              <path
-                d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
-                opacity="0.200000003"
-              ></path>
-            </g>
-          </g>
-        </g>
-      </g>
-    </svg>
-    <section class="container mx-auto text-center py-6 mb-12">
-      <h1
-        class="w-full my-2 text-5xl font-bold leading-tight text-center text-white"
-      >
-        Contactez-nous
-      </h1>
-      <div class="w-full mb-4">
-        <div
-          class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"
-        ></div>
-      </div>
-      <h3 class="my-4 text-3xl leading-tight">
-        Commençons par receuillir vos besoins!
-      </h3>
-      <button
-      
-       
-        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-      >
-      <a href="mailto:infos@allcompetences.com">
-        Contact
-      </a>
-      </button>
-    </section>
-    <!--Footer-->
-    <footer class="bg-white">
-      <div class="container mx-auto px-8">
-        <div class="w-full flex flex-col md:flex-row py-6">
-          <div class="flex-1 mb-6 text-black mr-12">
-            <a
-              class="text-blue-800 no-underline hover:no-underline font-bold text-lg lg:text-xl"
-              href="#"
-            >
-              <!--Icon from: http://www.potlabicons.com/ -->
-              <img
-              id="main-logo"
-              class="w-13 h-6 fill-current inline mr-2"
-              src="images/logo_2.png"
-              alt="All Compentences logo"
+          <div class="md:w-6/12 flex justify-center">
+            <img
+              src="/images/landing_1.png"
+              srcset="/images/landing_1@2x.png 2x"
+              alt="Experts All Competences"
+              class="max-w-md w-full rounded-2xl shadow-2xl"
+              loading="lazy"
             />
-              ALL COMPETENCES
-            </a>
-          </div>
-          <div class="flex-1">
-            <p class="uppercase text-gray-500 md:mb-6">Liens</p>
-            <ul class="list-reset mb-6">
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >FAQ</a
-                >
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >Aide</a
-                >
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >Support</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="flex-1">
-            <p class="uppercase text-gray-500 md:mb-6">Legal</p>
-            <ul class="list-reset mb-6">
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >Terms et conditions</a
-                >
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >Confidentialités</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="flex-1">
-            <p class="uppercase text-gray-500 md:mb-6">Réseaux sociaux</p>
-            <ul class="list-reset mb-6">
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >Facebook</a
-                >
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >Linkedin</a
-                >
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >Twitter</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="flex-1">
-            <p class="uppercase text-gray-500 md:mb-6">L'entreprise</p>
-            <ul class="list-reset mb-6">
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >Blog</a
-                >
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >A propos</a
-                >
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >Contacts</a
-                >
-              </li>
-            </ul>
           </div>
         </div>
+      </section>
+
+      <!-- TRUST / LOGOS -->
+      <section class="bg-white py-8">
+        <div
+          class="max-w-7xl mx-auto px-6 flex items-center justify-between gap-4 flex-wrap"
+        >
+          <p class="text-sm text-gray-500">Ils nous font confiance</p>
+          <div class="flex items-center gap-8 flex-wrap">
+            <!-- placeholders for client logos -->
+            <img
+              src="/images/logo-client-1.svg"
+              alt="Client"
+              class="h-8 opacity-80"
+            />
+            <img
+              src="/images/logo-client-2.svg"
+              alt="Client"
+              class="h-8 opacity-80"
+            />
+            <img
+              src="/images/logo-client-3.svg"
+              alt="Client"
+              class="h-8 opacity-80"
+            />
+            <img
+              src="/images/logo-client-4.svg"
+              alt="Client"
+              class="h-8 opacity-80"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- AVANTAGES -->
+      <section class="bg-gray-50 py-12">
+        <div
+          class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          <article class="bg-white p-6 rounded-lg card-anim">
+            <h3 class="font-semibold text-xl">Flexibilité & Rapidité</h3>
+            <p class="mt-3 text-sm text-gray-600">
+              Des experts disponibles à la demande, intégrables à vos équipes et
+              livrables rapidement.
+            </p>
+          </article>
+
+          <article class="bg-white p-6 rounded-lg card-anim">
+            <h3 class="font-semibold text-xl">Expertise Polyvalente</h3>
+            <p class="mt-3 text-sm text-gray-600">
+              Profils seniors capables d'opérer sur l’opérationnel et la
+              stratégie.
+            </p>
+          </article>
+
+          <article class="bg-white p-6 rounded-lg card-anim">
+            <h3 class="font-semibold text-xl">Tarification Transparente</h3>
+            <p class="mt-3 text-sm text-gray-600">
+              Forfaits clairs, options de mission flexible et ROI mesurable.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- DOMAINES -->
+      <section id="domaines" class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2 class="text-3xl font-bold text-center">
+            Nos domaines d'expertise
+          </h2>
+          <p class="text-center text-sm text-gray-500 mt-3">
+            Des équipes composées d'experts opérationnels dans les domaines clés
+            de l'entreprise.
+          </p>
+
+          <div
+            class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <div class="bg-white rounded-lg p-6 card-anim">
+              <img src="/images/it.png" alt="IT" class="h-12 mb-4" />
+              <h3 class="font-semibold">Développement & IT</h3>
+              <p class="text-sm text-gray-600 mt-2">
+                Full‑stack, DevOps, Cloud, Sécurité — experts opérationnels et
+                architectes.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-lg p-6 card-anim">
+              <img
+                src="/images/marketing.png"
+                alt="Marketing"
+                class="h-12 mb-4"
+              />
+              <h3 class="font-semibold">Marketing Digital</h3>
+              <p class="text-sm text-gray-600 mt-2">
+                SEO, Paid, Social, Content — stratégies axées performance.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-lg p-6 card-anim">
+              <img src="/images/design.png" alt="Design" class="h-12 mb-4" />
+              <h3 class="font-semibold">Design & UX</h3>
+              <p class="text-sm text-gray-600 mt-2">
+                UI/UX, Product Design, Motion — créations centrées utilisateur.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-lg p-6 card-anim">
+              <img
+                src="/images/gestion.png"
+                alt="Gestion de projet"
+                class="h-12 mb-4"
+              />
+              <h3 class="font-semibold">Gestion de projet</h3>
+              <p class="text-sm text-gray-600 mt-2">
+                Agile, PMO, Product Owners pour piloter vos initiatives.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-lg p-6 card-anim">
+              <img src="/images/data.png" alt="Data" class="h-12 mb-4" />
+              <h3 class="font-semibold">Data & Analytics</h3>
+              <p class="text-sm text-gray-600 mt-2">
+                Business Intelligence, Data Science et IA appliquée.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-lg p-6 card-anim">
+              <img src="/images/finance.png" alt="Finance" class="h-12 mb-4" />
+              <h3 class="font-semibold">Business & Finance</h3>
+              <p class="text-sm text-gray-600 mt-2">
+                Contrôle de gestion, cash management et conseil financier.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="temoignages" class="bg-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-2xl font-bold text-center">
+            Ce que disent nos clients
+          </h2>
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <blockquote class="bg-gray-50 p-6 rounded-lg">
+              <p class="text-sm text-gray-700">
+                "All Competences nous a aidés à monter une équipe produit en 3
+                semaines. Impact direct sur notre roadmap."
+              </p>
+              <footer class="mt-4 text-xs text-gray-500">
+                — Claire Dupont, CTO, ScaleUp
+              </footer>
+            </blockquote>
+
+            <blockquote class="bg-gray-50 p-6 rounded-lg">
+              <p class="text-sm text-gray-700">
+                "Réactivité et qualité des profils : notre opération de
+                migration cloud s'est déroulée sans accroc."
+              </p>
+              <footer class="mt-4 text-xs text-gray-500">
+                — Martin Lefèvre, DSI, Groupe industriel
+              </footer>
+            </blockquote>
+
+            <blockquote class="bg-gray-50 p-6 rounded-lg">
+              <p class="text-sm text-gray-700">
+                "Un vrai partenaire business, pas juste du staffing.
+                Méthodologie et résultats."
+              </p>
+              <footer class="mt-4 text-xs text-gray-500">
+                — Sophie Martin, CFO, PME
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUICK MATCH (modal) -->
+      <div
+        id="quickMatchModal"
+        class="fixed inset-0 hidden items-center justify-center z-50"
+      >
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative bg-white rounded-xl max-w-xl w-full p-6 z-10">
+          <button id="closeQuick" class="absolute right-4 top-4 text-gray-500">
+            ✕
+          </button>
+          <h3 class="text-lg font-semibold">Trouver un expert en 3 clics</h3>
+          <form id="quickForm" class="mt-4 grid grid-cols-1 gap-4">
+            <select name="domain" required class="px-4 py-2 border rounded">
+              <option value="">Choisissez un domaine</option>
+              <option>Développement & IT</option>
+              <option>Marketing Digital</option>
+              <option>Design & UX</option>
+              <option>Data & Analytics</option>
+              <option>Finance</option>
+            </select>
+            <select name="type" required class="px-4 py-2 border rounded">
+              <option value="">Type de mission</option>
+              <option>Mission courte (1-3 mois)</option>
+              <option>Mission long terme (&gt;3 mois)</option>
+              <option>Renfort d'équipe</option>
+            </select>
+            <div class="flex gap-2">
+              <input
+                name="email"
+                type="email"
+                placeholder="Votre e‑mail"
+                required
+                class="flex-1 px-4 py-2 border rounded"
+              />
+              <button
+                type="submit"
+                class="bg-blue-800 text-white px-4 py-2 rounded"
+              >
+                Envoyer
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      
-    </footer>
 
-    <div>
-      <p class="text-center p-3">
-        Copyright © 2025 All Competences, tous droits réservés.
-      </p>
-    </div>
-    <!-- jQuery if you need it
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  -->
+      <!-- CONTACT / CTA -->
+      <section id="contact" class="bg-blue-900 text-white py-12">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+          <h2 class="text-2xl font-bold">Prêt à démarrer ?</h2>
+          <p class="mt-3 text-sm text-white/90">
+            Parlez-nous de votre projet — nous vous rappelons sous 24h.
+          </p>
+          <a
+            href="/contact.php"
+            class="mt-6 inline-block bg-white text-blue-900 px-6 py-3 rounded-full font-semibold"
+            >Contact</a
+          >
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="bg-gray-100 text-gray-700 py-10">
+        <div
+          class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-6"
+        >
+          <div>
+            <img src="/images/logo_2.png" alt="logo" class="h-8 mb-4" />
+            <p class="text-sm">
+              ALL COMPETENCES — Conseil stratégique & experts indépendants.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold">Liens</h4>
+            <ul class="mt-3 text-sm space-y-2">
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Aide</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold">Legal</h4>
+            <ul class="mt-3 text-sm space-y-2">
+              <li><a href="#">Mentions légales</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold">Suivez‑nous</h4>
+            <div class="flex gap-3 mt-3">
+              <a href="#" aria-label="LinkedIn" class="text-sm">LinkedIn</a>
+              <a href="#" aria-label="Twitter" class="text-sm">Twitter</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center text-xs text-gray-500">
+          © 2025 All Competences — Tous droits réservés
+        </div>
+      </footer>
+    </main>
+
     <script>
-      var scrollpos = window.scrollY
-      var header = document.getElementById("header")
-      var navcontent = document.getElementById("nav-content")
-      var navaction = document.getElementById("navAction")
-      var brandname = document.getElementById("brandname")
-      var toToggle = document.querySelectorAll(".toggleColour")
-      var menusvg = document.getElementById("menu-svg")
+      // Mobile menu toggle
+      const mobileOpen = document.getElementById("mobileOpen")
+      const mobileMenu = document.getElementById("mobileMenu")
+      mobileOpen?.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden")
+      })
 
-      document.addEventListener("scroll", function () {
-        /*Apply classes for slide in bar*/
-        scrollpos = window.scrollY
-
-        if (scrollpos > 10) {
-          header.classList.add("bg-white")
-          navaction.classList.remove("bg-white")
-          navaction.classList.add("bg-blue-800")
-          navaction.classList.remove("text-gray-800")
-          navaction.classList.add("text-white")
-          menusvg.classList.remove("text-white")
-          menusvg.classList.add("text-blue-800")
-          // Changement d'image au scroll (ex: un logo alternatif)
-          const logo = document.getElementById("main-logo") // À adapter selon ton HTML
-          if (logo) {
-            logo.src = "images/logo_2.png" // Chemin de la nouvelle image
-          }
-          //Use to switch toggleColour colours
-          for (var i = 0; i < toToggle.length; i++) {
-            toToggle[i].classList.add("text-blue-800")
-            toToggle[i].classList.remove("text-white")
-            toToggle[i].classList.remove("text-white/90")
-          }
-          header.classList.add("shadow")
-          navcontent.classList.remove("bg-gray-100")
-          navcontent.classList.add("bg-white")
-        } else {
-          header.classList.remove("bg-white")
-          navaction.classList.remove("gradient")
-          navaction.classList.add("bg-white")
-          navaction.classList.remove("text-white")
-          navaction.classList.add("text-blue-800")
-          menusvg.classList.add("text-white")
-          menusvg.classList.remove("text-blue-800")
-
-          //Use to switch toggleColour colours
-          for (var i = 0; i < toToggle.length; i++) {
-            toToggle[i].classList.add("text-white")
-            toToggle[i].classList.remove("text-gray-800")
-          }
-          const logo = document.getElementById("main-logo") // À adapter selon ton HTML
-          if (logo) {
-            logo.src = "images/logo.png" // Chemin de la nouvelle image
-          }
-
-          header.classList.remove("shadow")
-          // navcontent.classList.remove("bg-white")
-          // navcontent.classList.add("bg-gray-100")
+      // Quick match modal
+      const quickBtn = document.getElementById("quickMatch")
+      const quickModal = document.getElementById("quickMatchModal")
+      const closeQuick = document.getElementById("closeQuick")
+      quickBtn?.addEventListener("click", () => {
+        quickModal.classList.remove("hidden")
+        quickModal.classList.add("flex")
+      })
+      closeQuick?.addEventListener("click", () => {
+        quickModal.classList.add("hidden")
+        quickModal.classList.remove("flex")
+      })
+      quickModal?.addEventListener("click", (e) => {
+        if (e.target === quickModal) {
+          quickModal.classList.add("hidden")
+          quickModal.classList.remove("flex")
         }
       })
-    </script>
-    <script>
-      /*Toggle dropdown list*/
-      /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
 
-      var navMenuDiv = document.getElementById("nav-content")
-      var navMenu = document.getElementById("nav-toggle")
+      // Quick form (demo) - replace with real endpoint
+      document
+        .getElementById("quickForm")
+        ?.addEventListener("submit", function (e) {
+          e.preventDefault()
+          alert("Merci — nous vous recontactons sous 24h.")
+          quickModal.classList.add("hidden")
+          quickModal.classList.remove("flex")
+        })
 
-      document.onclick = check
-      function check(e) {
-        var target = (e && e.target) || (event && event.srcElement)
-
-        //Nav Menu
-        if (!checkParent(target, navMenuDiv)) {
-          // click NOT on the menu
-          if (checkParent(target, navMenu)) {
-            // click on the link
-            if (navMenuDiv.classList.contains("hidden")) {
-              navMenuDiv.classList.remove("hidden")
-            } else {
-              navMenuDiv.classList.add("hidden")
-            }
-          } else {
-            // click both outside link and outside menu, hide menu
-            navMenuDiv.classList.add("hidden")
-          }
-        }
-      }
-      function checkParent(t, elm) {
-        while (t.parentNode) {
-          if (t == elm) {
-            return true
-          }
-          t = t.parentNode
-        }
-        return false
-      }
+      // small header shrink on scroll for better UX
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("siteNav")
+        if (window.scrollY > 40) nav.classList.add("py-2", "shadow-md")
+        else nav.classList.remove("py-2", "shadow-md")
+      })
     </script>
   </body>
 </html>
